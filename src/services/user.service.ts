@@ -11,7 +11,7 @@ export async function createUser(input: SchemaDefinition<Omit<UserDocument, 'cre
 }
 
 export async function validatePassword({email, password}:{email: string, password: string}){
-    const user = UserModel.findOne({email})
+    const user = await UserModel.findOne({email})
 
     if(!user){
         return false
